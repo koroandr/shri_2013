@@ -1,0 +1,52 @@
+.header {
+    font-family: Helvetica, Arial sans-serif;
+}
+
+
+.body {
+    font-family: Helvetica, Arial sans-serif;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+}
+.body__left-arrow {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    width: 30px;
+    height: 70px;
+    background-color: red;
+}
+
+.menu {
+    font-family: Helvetica, Arial sans-serif;
+    font-size: 1.5em;
+}
+.menu__question-number {
+    font-weight: lighter;
+    text-decoration: underline;
+    color: #59c;
+}
+.menu__question-number.menu__question-number_state_ready {
+    color: #5c9;
+}
+.menu__question-number.menu__question-number_state_error {
+    color: #f59;
+}
+.menu__question-number.menu__question-number_state_selected {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.question {
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+.menu {
+    font-size: 2em;
+
+}
