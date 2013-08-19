@@ -6,16 +6,25 @@
  * To change this template use File | Settings | File Templates.
  */
 
-require(["jquery", "blocks/menu/menu", "blocks/header", "blocks/body", "js/eventTarget"], function($, Menu, Header, Body, dispatcher) {
+require([
+    "jquery",
+    "blocks/menu/menu",
+    "blocks/header",
+    "blocks/body",
+    "js/controller",
+    "js/eventTarget"
+], function($, Menu, Header, Body, Controller, dispatcher) {
     $(function(){
+        var controller = new Controller(3);
+
         var header = new Header(Header.generateSampleModel());
         $("body").append(header.render());
 
         var body = new Body(Body.generateSampleModel());
         $("body").append(body.render());
 
-        dispatcher.addEventListener("item_change", function(data){
-            console.log("item_change event: ", data);
+        dispatcher.addEventListener("item_selected", function(data){
+            console.log("item_selected event: ", data);
         });
 
         dispatcher.addEventListener("next_item", function(data){

@@ -21,6 +21,7 @@ define(["jquery", "js/mustache", "text!blocks/question-body.html", ], function($
     QuestionBody.generateSampleModel = function() {
         samples++;
         return {
+            number: samples,
             caption: "Вопрос " + samples,
             text: "Содержимое тестового вопроса " + samples +". Тебе нравится?"
         }
