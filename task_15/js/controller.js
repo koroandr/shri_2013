@@ -84,6 +84,11 @@ define(["js/eventTarget"], function(dispatcher){
         this.results[event.item - 1] = null;
     }
     Controller.prototype.handleSubmit = function() {
+        dispatcher.fire("item_changed", {
+            previous_item: this.selected_item,
+            num_items: this.num_items,
+            selected_item: this.selected_item
+        });
         var showError = function() {
             alert("Форма заполнена не до конца!");
         };
@@ -91,8 +96,8 @@ define(["js/eventTarget"], function(dispatcher){
             showError();
             return;
         }
-        for (var i in this.results) {
-            if (this.results[i] == null) {
+        for (var i= 0; i < this.num_items; i++) {
+            if (!this.results[i]) {
                 showError();
                 return;
             }

@@ -37,6 +37,12 @@ define(["jquery", "js/mustache", "text!blocks/question-body.html", "js/eventTarg
                 })
             }
         }
+        if (index == event.selected_item) {
+            var area = this.body.find(".question-body__answer");
+            if (!area.val()) {
+                area.focus();
+            }
+        }
     };
 
 
