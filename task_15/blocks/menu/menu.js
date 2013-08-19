@@ -32,6 +32,9 @@ define([
             })
         });
 
+//        console.log(this.items[0]);
+        $(this.items[0]).addClass("menu__question-number_state_selected");
+
         return menu;
     };
     Menu.prototype.handleItemChanged = function(event) {

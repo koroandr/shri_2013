@@ -183,6 +183,7 @@ define(function(){
     ];
     return {
         menu: menu,
-        questions: questions
+        questions: questions,
+        active_question: 0
     };
 });

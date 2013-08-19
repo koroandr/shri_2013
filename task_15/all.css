@@ -1,3 +1,5 @@
+/*Не успелразделить css на отдельные файлы, но сделано в соответствие с методолгией БЭМ*/
+
 .header {
     font-family: Helvetica, Arial sans-serif;
     margin-bottom: 30px;
@@ -32,14 +34,12 @@
     margin-top: 135px;
     color: #000;
     display: block;
-    /*top: 135px;*/
     float: left;
     width: 30px;
     height: 50px;
     text-align: center;
     padding-top: 30px;
 
-    /*background-color: #f0f0f0;*/
     border-top: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
 
@@ -49,6 +49,9 @@
 
 .body__arrow:hover {
     background-color: #dbf2ff;
+}
+.body__arrow:active {
+    background-color: #cbe2ef;
 }
 
 .body__arrow.body__arrow_disabled {
@@ -81,8 +84,6 @@
 
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-    /*box-shadow: 0 3px 3px 0 #aaa;*/
-    /*background-color: #fafafa;*/
 }
 
 .menu {
@@ -151,14 +152,16 @@
     background-color: #6ad;
 }
 
+.question__next-button:active {
+    background-color: #48b;
+}
+
 .question-body {
 
 }
 
 
 .question-body__caption {
-    /*margin-top: 10px;*/
-    /*margin-bottom: 0;*/
     margin: 0;
 }
 
@@ -176,14 +179,12 @@
 }
 .question-body__answer {
     display: block;
-    /*margin-top: 5px;*/
     width: 606px;
     height: 100px;
     padding: 4px;
     margin-left: 0;
     margin-right: 0;
     margin-top: 5px;
-    /*margin-top: 30px;*/
     outline: none;
     font-size: 0.9em;
     resize: none;

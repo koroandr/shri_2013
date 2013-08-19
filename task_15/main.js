@@ -24,18 +24,5 @@ require([
         var body = new Body(model);
         $("body").append(body.render());
 
-        dispatcher.addEventListener("item_selected", function(data){
-            console.log("item_selected event: ", data);
-        });
-
-        dispatcher.addEventListener("next_item", function(data){
-            console.log("next_item event: ", data);
-        });
-        dispatcher.addEventListener("prev_item", function(data){
-            console.log("prev_item event: ", data);
-        });
-
-//        var qb = new Question(Question.generateSampleModel());
-//        $(".body__content").append(qb.render());
     });
 });
