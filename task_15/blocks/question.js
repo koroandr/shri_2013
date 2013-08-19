@@ -12,14 +12,19 @@ define(["js/mustache", "text!blocks/question.html", "blocks/question-body"], fun
     };
 
     Question.prototype.render = function() {
-        return Mustache.render(template, this.model, {
-            question_body: QuestionBody.template
-        });
+        var qbody = (new QuestionBody(this.model.question_body)).render();
+        var body = $(Mustache.render(template, this.model));
+
+        body.prepend(qbody);
+
+        return body;
     };
 
     Question.generateSampleModel = function() {
         return {
-            question_body: QuestionBody.generateSampleModel()
+            question_body: QuestionBody.generateSampleModel(),
+            button_type: "next",
+            button_caption: "Далее"
         };
     };
 

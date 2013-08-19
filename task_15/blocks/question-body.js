@@ -6,19 +6,23 @@
  * To change this template use File | Settings | File Templates.
  */
 
-define(["js/mustache", "text!blocks/question-body.html", ], function(Mustache, template){
+define(["jquery", "js/mustache", "text!blocks/question-body.html", ], function($, Mustache, template){
     var QuestionBody = function(model) {
         this.model = model;
     };
 
     QuestionBody.prototype.render = function() {
-        return Mustache.render(template, this.model);
+        return $(Mustache.render(template, this.model));
     };
 
+
+    //Для генерации тестового контента (все вопросы нумеруются)
+    var samples = 0;
     QuestionBody.generateSampleModel = function() {
+        samples++;
         return {
-            caption: "Вопрос 1",
-            text: "Содержимое тестового вопроса 1. Тебе нравится?"
+            caption: "Вопрос " + samples,
+            text: "Содержимое тестового вопроса " + samples +". Тебе нравится?"
         }
     };
 

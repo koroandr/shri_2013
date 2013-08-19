@@ -7,13 +7,13 @@
  */
 
 
-define(["js/mustache", "text!blocks/header.html"], function(Mustache, template){
+define(["jquery", "js/mustache", "text!blocks/header.html"], function($, Mustache, template){
     var Header = function (model) {
         this.model = model;
     }
 
     Header.prototype.render = function() {
-        return Mustache.render(template, this.model);
+        return  $(Mustache.render(template, this.model));
     }
 
     Header.generateSampleModel = function() {
