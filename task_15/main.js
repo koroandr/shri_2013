@@ -12,15 +12,16 @@ require([
     "blocks/header",
     "blocks/body",
     "js/controller",
+    "js/model",
     "js/eventTarget"
-], function($, Menu, Header, Body, Controller, dispatcher) {
+], function($, Menu, Header, Body, Controller, model, dispatcher) {
     $(function(){
-        var controller = new Controller(3);
+        var controller = new Controller(15);
 
         var header = new Header(Header.generateSampleModel());
         $("body").append(header.render());
 
-        var body = new Body(Body.generateSampleModel());
+        var body = new Body(model);
         $("body").append(body.render());
 
         dispatcher.addEventListener("item_selected", function(data){

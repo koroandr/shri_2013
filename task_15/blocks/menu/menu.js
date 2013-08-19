@@ -18,6 +18,8 @@ define([
         this.menu = null;
 
         dispatcher.addEventListener("item_changed", this.handleItemChanged.bind(this));
+        dispatcher.addEventListener("validation_fault", this.handleValidationFault.bind(this));
+        dispatcher.addEventListener("validation_success", this.handleValidationSuccess.bind(this));
     };
 
     Menu.prototype.render = function() {
@@ -35,6 +37,16 @@ define([
     Menu.prototype.handleItemChanged = function(event) {
         this.menu.find(".menu__question-number_state_selected").removeClass("menu__question-number_state_selected");
         $(this.items[event.selected_item - 1]).addClass("menu__question-number_state_selected");
+    };
+    Menu.prototype.handleValidationFault = function(event) {
+        var dom = $(this.items[event.item - 1]);
+        dom.removeClass("menu__question-number_state_ready");
+        dom.addClass("menu__question-number_state_error");
+    };
+    Menu.prototype.handleValidationSuccess = function(event) {
+        var dom = $(this.items[event.item - 1]);
+        dom.removeClass("menu__question-number_state_error");
+        dom.addClass("menu__question-number_state_ready");
     };
 
     Menu.generateSampleModel = function() {
