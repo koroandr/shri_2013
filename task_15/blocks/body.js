@@ -11,8 +11,9 @@ define([
     "js/mustache",
     "text!blocks/body.html",
     "blocks/question",
-    "blocks/menu/menu"
-], function($, Mustache, template, Question, Menu) {
+    "blocks/menu/menu",
+    "js/eventTarget"
+], function($, Mustache, template, Question, Menu, dispatcher) {
     var Body = function(model) {
         this.model = model;
     };
@@ -31,8 +32,16 @@ define([
             }
         }
 
+        body.find(".body__right-arrow").click(function(){
+            dispatcher.fire("next_item");
+        });
+        body.find(".body__left-arrow").click(function(){
+            dispatcher.fire("prev_item");
+        });
+
         return body;
     };
+
 
     Body.generateSampleModel = function() {
         return {
